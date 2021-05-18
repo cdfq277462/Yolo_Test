@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include "camerathread.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dialog; }
@@ -14,6 +15,14 @@ class Dialog : public QDialog
 public:
     Dialog(QWidget *parent = nullptr);
     ~Dialog();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void updateFrames(QImage, QImage);
+
+private:
+    cameraThread *CamThread;
 
 private:
     Ui::Dialog *ui;

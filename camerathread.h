@@ -29,6 +29,8 @@ public slots:
     // Member function that handles thread iteration
     void startCapture();
 
+    void detectObjectsDNN(cv::Mat &frame);
+
     // If called it will stop the thread
     void stop() { camera_running = false; }
 
@@ -56,7 +58,9 @@ private:
 signals:
     // A signal sent by our class to notify that there are frames that need to be processed
     //void framesReady(QImage frameRGB, QImage frameDepth);
+    //void framesReady(QImage, QImage);
     void framesReady(QImage, QImage);
+
 
 };
 // A function that will convert realsense frames to QImage
